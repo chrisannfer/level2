@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #revealLink {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>One Step Closer</h1>
+    <h3>Always Remember</h3>
+
+    <!-- Form for answer submission -->
+    <form id="answerForm">
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" required>
+        <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+
+    <!-- Placeholder for the image -->
+    <div id="result">
+        <img id="downloadedImage" src="#" alt="">
+        <!-- <p>Image Downloaded!</p> -->
+
+        <!-- Revealed link -->
+        <div id="revealLink">
+            <p id="revealedLink">Link Revealed:</p>
+            <a id="link" href="#" target="_blank">Visit the Revealed Link</a>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            // Get the value from the input box
+            var enteredAnswer = document.getElementById("answer").value.toLowerCase(); // Convert to lowercase for case-insensitivity
+
+            // Check if the enteredAnswer is correct
+            if (enteredAnswer === "85") {  // Replace "your-certain-answer" with the actual correct answer
+                // Create an anchor element to trigger the download
+                var downloadLink = document.createElement("a");
+                downloadLink.href = "th_clue1.png";  // Replace with the actual path to your image
+                downloadLink.download = "clue1.jpg";  // Specify the downloaded file name
+                downloadLink.click();
+
+                // Display the result image and text
+                document.getElementById("downloadedImage").src = "path/to/your-image.jpg";
+                document.getElementById("result").style.display = "block";
+
+                // // Reveal the link
+                document.getElementById("revealedLink").textContent = " ";
+                document.getElementById("link").textContent = "Click Me";
+                document.getElementById("link").href = "https://docs.google.com/document/d/1TivTasYfGoVNg7ZxTMRHj2MpgD3v_ObpbcJ7NGs5YK4/edit?usp=sharing";  // Replace with the actual link
+                document.getElementById("revealLink").style.display = "block";
+            } else {
+                alert("Incorrect answer. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
